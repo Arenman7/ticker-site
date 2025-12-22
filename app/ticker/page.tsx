@@ -1,9 +1,7 @@
 import { redirect, RedirectType } from "next/navigation";
 
-const TickerPage = () => {
+const Page = () => {
     return (
         redirect("/dashboard", RedirectType.replace)
     );
 };
-
-export default TickerPage;

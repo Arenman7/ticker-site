@@ -1,11 +1,7 @@
-import React from 'react';
-
-const LoadingPage = () => {
+export default function Loading() {
     return (
         <div>
-            <h1>Symbol Page</h1>
+            <h1>Im loading!</h1>
         </div>
     );
-};
-
-export default LoadingPage;
+}
