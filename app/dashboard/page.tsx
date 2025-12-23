@@ -1,8 +1,14 @@
 import { Suspense } from "react";
 import TickerRow from "@/components/ticker-row";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Dashboard | Stocks',
+    description: 'A list of stocks and their company information.',
+}
 
 const TICKERS = [
-    "AZO","PYPL","BDX","IDXX","O","PSX","EA","CMG",
+    "AAPL","PYPL","BDX","IDXX","O","PSX","EA","CMG",
     "VLO","EW","D","ROP","AIG","PSA","OKE","EXC"
 ];
 

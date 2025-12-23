@@ -3,7 +3,11 @@ import PriceChart from "@/components/price-chart";
 import PriceTable from "@/components/price-table";
 import { formatMarketCap } from "@/lib/format";
 import Link from "next/link";
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+    title: 'Stock Details',
+}
 function rateLimitUI(symbol: string) {
     return (
         <div className="flex items-center justify-center h-screen bg-neutral-900">
