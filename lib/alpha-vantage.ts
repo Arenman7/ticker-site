@@ -1,14 +1,4 @@
-type AlphaVantageOverviewRaw = {
-    Symbol?: string;
-    Name?: string;
-    Exchange?: string;
-    Sector?: string;
-    Industry?: string;
-    MarketCapitalization?: string;
-    [key: string]: any; // catch-all for other fields
-};
-
-export function normalizeOverview(raw: AlphaVantageOverviewRaw) {
+export function normalizeOverview(raw: any) {
     return {
         symbol: raw.Symbol ?? "N/A",
         name: raw.Name ?? "N/A",
@@ -27,7 +17,10 @@ export async function fetchCompanyOverview(symbol: string) {
         { next: { revalidate: 60 * 60 * 24 } }
     );
 
-    const data: AlphaVantageOverviewRaw = await res.json();
+    const data = await res.json();
+
+    // console.log(data);
+
 
     if (data.Note) {
         return { error: "RATE_LIMIT" as const };
@@ -39,7 +32,6 @@ export async function fetchCompanyOverview(symbol: string) {
 
     return normalizeOverview(data);
 }
-
 
 export async function fetchDailyPrices(symbol: string) {
     const res = await fetch(
